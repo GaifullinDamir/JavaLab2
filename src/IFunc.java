@@ -1,3 +1,3 @@
 public interface IFunc{
-    public int[] GetSumEvenOddNumbers();
+    public int[] GetSumEvenOddNumbers(String args[]);
 }
