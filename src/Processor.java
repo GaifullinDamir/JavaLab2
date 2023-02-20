@@ -18,6 +18,8 @@ public class Processor implements IFunc, IConst{
             }
         } catch (ExcMoreThanSomeNum exc) {
             System.out.println(exc);
+            return new int[] {0, 0};
+
         }
 
         return new int[] {sumOddNumbers, sumEvenNumbers};
@@ -42,12 +44,19 @@ public class Processor implements IFunc, IConst{
         if(arrayToCheck == null){
             throw new NullPointerException();
         }
-        for(int i = 0; i < arrayToCheck.length; i++){
-           if(arrayToCheck[i] == REQ_SYMB){
-               break;
-           }
+
+        boolean isSucces = false;
+        for (String number : arrayToCheck)
+        {
+            if (number.contains(REQ_SYMB))
+            {
+                isSucces = true; break;
+            }
         }
-        throw new ExcMissingNumZero();
+        if (!isSucces)
+        {
+            throw new ExcMissingNumZero();
+        }
     }
 
     public void PrintOddAndEvenNums(int[] oddAndEvenArr){

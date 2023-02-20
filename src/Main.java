@@ -8,6 +8,7 @@ public class Main {
             _processor.CheckArrSize(args);
             _processor.CheckCurrSymb(args);
             resultArr = _processor.GetSumEvenOddNumbers(args);
+            _processor.PrintOddAndEvenNums(resultArr);
         } catch(ExcArrElementNotEnough e) {
             System.out.println(e);
         } catch(ExcMissingNumZero e) {
