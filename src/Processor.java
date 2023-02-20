@@ -24,8 +24,24 @@ public class Processor implements IFunc, IConst{
     }
 
     public void CheckNum(int intNum) throws ExcMoreThanSomeNum{
-        if(intNum > checkedValue){
+        if(intNum > CHECKED_VALUE){
             throw new ExcMoreThanSomeNum();
         }
     }
+
+    public void CheckArrSize(String[] args) throws ExcArrElementNotEnough{
+        if(args.length < MIN_ARRAY_SIZE){
+            throw new ExcArrElementNotEnough();
+        }
+    }
+
+    public void CheckCurrChar(String[] arrayToCheck) throws ExcMissingNumZero{
+        for(int i = 0; i < arrayToCheck.length; i++){
+           if(arrayToCheck[i] == REQ_SYMB){
+               break;
+           }
+        }
+        throw new ExcMissingNumZero();
+    }
+
 }
