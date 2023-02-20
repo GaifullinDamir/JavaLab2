@@ -30,18 +30,29 @@ public class Processor implements IFunc, IConst{
     }
 
     public void CheckArrSize(String[] args) throws ExcArrElementNotEnough{
+        if(args == null){
+            throw new NullPointerException();
+        }
         if(args.length < MIN_ARRAY_SIZE){
             throw new ExcArrElementNotEnough();
         }
     }
 
-    public void CheckCurrChar(String[] arrayToCheck) throws ExcMissingNumZero{
+    public void CheckCurrSymb(String[] arrayToCheck) throws ExcMissingNumZero{
+        if(arrayToCheck == null){
+            throw new NullPointerException();
+        }
         for(int i = 0; i < arrayToCheck.length; i++){
            if(arrayToCheck[i] == REQ_SYMB){
                break;
            }
         }
         throw new ExcMissingNumZero();
+    }
+
+    public void PrintOddAndEvenNums(int[] oddAndEvenArr){
+        System.out.println("Сумма нечетных чисел: " + oddAndEvenArr[0] + "\n" +
+                "Сумма четных чисел: " + oddAndEvenArr[1]);
     }
 
 }
